@@ -1,6 +1,8 @@
 package uk.ac.newcastle.enterprisemiddleware.travelagent;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import uk.ac.newcastle.enterprisemiddleware.taxi.Booking;
 import uk.ac.newcastle.enterprisemiddleware.taxi.Customer;
 import javax.persistence.*;
@@ -27,6 +29,7 @@ public class TravelAgentBooking implements Serializable {
     /** The Taxi booking is local to this service; Flight and Hotel IDs are held below. */
     @OneToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "taxi_booking_id", nullable = false, unique = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Booking taxiBooking;
 
     @Column(name = "flight_booking_id", nullable = false)
@@ -45,6 +48,8 @@ public class TravelAgentBooking implements Serializable {
     public void setCustomer(Customer customer) { this.customer = customer; }
     public Booking getTaxiBooking() { return taxiBooking; }
     public void setTaxiBooking(Booking taxiBooking) { this.taxiBooking = taxiBooking; }
+    @JsonProperty("taxiBookingId")
+    public Long getTaxiBookingId() { return taxiBooking == null ? null : taxiBooking.getId(); }
     public Long getFlightBookingId() { return flightBookingId; }
     public void setFlightBookingId(Long flightBookingId) { this.flightBookingId = flightBookingId; }
     public Long getHotelBookingId() { return hotelBookingId; }

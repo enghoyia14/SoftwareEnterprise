@@ -29,7 +29,8 @@ public class TravelAgentBookingRepository {
     }
 
     @Transactional
-    void delete(TravelAgentBooking booking) {
-        em.remove(em.contains(booking) ? booking : em.merge(booking));
+    void deleteById(Long id) {
+        TravelAgentBooking booking = em.find(TravelAgentBooking.class, id);
+        if (booking != null) em.remove(booking);
     }
 }

@@ -8,6 +8,7 @@ import javax.ws.rs.core.Response;
 @Path("/bookings")
 @RegisterRestClient(configKey = "taxi-api")
 @Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public interface TaxiApiClient {
     @POST Response createBooking(TaxiBookingRequest request);
     @DELETE @Path("/{id:[0-9]+}") Response cancelBooking(@PathParam("id") Long id);

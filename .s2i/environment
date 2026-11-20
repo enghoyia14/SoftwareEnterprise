@@ -3,3 +3,9 @@ S2I_SOURCE_DEPLOYMENTS_FILTER=app lib quarkus quarkus-run.jar
 JAVA_OPTIONS=-Dquarkus.http.host=0.0.0.0
 AB_JOLOKIA_OFF=true
 JAVA_APP_JAR=/deployments/quarkus-run.jar
+TAXI_API_URL=https://software-enterprise-git-salewenghoyia-dev.apps.rm3.7wse.p1.openshiftapps.com
+HOTEL_API_URL=https://ncl-csc-8104-athulya-reji-git-athulyaraj-dev.apps.rm2.thpm.p1.openshiftapps.com
+FLIGHT_API_URL=https://csc-8104-enterprise-java-yogiraj-sadhan-yogiraj-max-dev.apps.rm2.thpm.p1.openshiftapps.com
+TRAVELAGENT_TAXI_CUSTOMER_ID=2
+TRAVELAGENT_HOTEL_CUSTOMER_ID=2
+TRAVELAGENT_FLIGHT_CUSTOMER_ID=1
